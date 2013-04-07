@@ -7,12 +7,12 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
-    <name>Parent of Java EE 7 Examples</name>
-	<modules>
-		<module>json</module>
-    <module>websocket</module>
-  </modules>
-
+    <name>JSR 342 - Java EE 7 Examples</name>
+    <modules>
+        <module>json</module>
+        <module>websocket</module>
+        <module>servlet</module>
+    </modules>
 	
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>

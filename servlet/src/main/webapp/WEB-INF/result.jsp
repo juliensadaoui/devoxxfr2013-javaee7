@@ -13,9 +13,6 @@
     </head>
     <body>
         <h1>Servlet ${servletName} at ${contextPath}</h1>
-        ${message} <br /><br />
-        <pre>
-            <code>${result}</code>
-        </pre>        
+        ${content}      
     </body>
 </html>
