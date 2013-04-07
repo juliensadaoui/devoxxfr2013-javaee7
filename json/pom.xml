@@ -1,35 +1,37 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.soat.javaee7</groupId>
-	<artifactId>json</artifactId>
-	<version>1.0-SNAPSHOT</version>
-	<packaging>war</packaging>
-	<name>JSR 353 - Java API for JSON</name>
-	
-	<parent>
-		<groupId>com.soat.javaee7</groupId>
-		<artifactId>javaee7-examples</artifactId>
-		<version>1.0-SNAPSHOT</version>
-	</parent>
-	
-	<dependencies>
-            <dependency>
-                <groupId>org.glassfish</groupId>
-                <artifactId>javax.json</artifactId>
-                <version>1.0-b06</version>
-            </dependency>
-	</dependencies>
-	
-	<plugins>
-		<plugin>
-			<artifactId>maven-war-plugin</artifactId>
-			<version>2.3</version>
-			<configuration>
-				<warName>mywebapp</warName>
-			</configuration>
-		</plugin>
-	</plugins>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.soat.javaee7</groupId>
+    <artifactId>json</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>war</packaging>
+    <name>JSR 353 - Java API for JSON</name>
+
+    <parent>
+            <groupId>com.soat.javaee7</groupId>
+            <artifactId>javaee7-examples</artifactId>
+            <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.json</artifactId>
+            <version>1.0-b06</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <warName>json</warName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

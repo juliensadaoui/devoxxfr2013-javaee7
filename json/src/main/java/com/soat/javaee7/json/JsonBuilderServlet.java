@@ -5,14 +5,7 @@
 package com.soat.javaee7.json;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.HashMap;
-import java.util.Map;
-import javax.json.Json;
-import javax.json.JsonBuilderFactory;
 import javax.json.JsonObject;
-import javax.json.JsonWriter;
-import javax.json.JsonWriterFactory;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- *
+ *  @author Julien Sadaoui
  */
 @WebServlet(urlPatterns = {"/json-builder/*"})
 public class JsonBuilderServlet extends HttpServlet {
@@ -40,20 +33,8 @@ public class JsonBuilderServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
             
-//            out.println("<html>");
-//            out.println("<head>");
-//            out.println("<title>Servlet DOMTestServlet</title>");            
-//            out.println("</head>");
-//            out.println("<body>");
-//            out.println("<h1>Servlet DOMTestServlet at " + request.getContextPath() + "</h1>");
-            
-//            out.println("");
-
             JsonObject jsonObject = JsonBuilderExample.buildJsonObjectWithArrayAndEmbeddedObject();
 
-//            writer.writeObject(value);
-//            out.println("</body>");
-//            out.println("</html>");
             request.setAttribute("title", "An sample usage of JsonBuilder (DOM-based APIs)");
             request.setAttribute("servletName", this.getServletName());
             request.setAttribute("contextPath", request.getContextPath());

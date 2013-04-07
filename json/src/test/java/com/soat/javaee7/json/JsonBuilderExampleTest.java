@@ -9,7 +9,7 @@ import org.junit.Test;
 import static org.fest.assertions.Assertions.assertThat;
 
 /**
- *  Tests for JsonBuilder API
+ *  Tests the examples of JsonBuilder
  * 
  * @author Julien Sadaoui
  */
