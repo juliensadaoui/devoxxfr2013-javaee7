@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(urlPatterns = {"/json-generator"})
 public class JsonGeneratorServlet extends CommonHttpServlet {
 
-    private static final String TITLE = "An sample usage of JsonBuilder (DOM-based APIs)";
+    private static final String TITLE = "An sample usage of JsonBuilder (Streaming APIs)";
     
     @Override
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) 
