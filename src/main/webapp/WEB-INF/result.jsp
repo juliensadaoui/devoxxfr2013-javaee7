@@ -12,7 +12,8 @@
         <title>${title}</title>
     </head>
     <body>
-        <h1>Servlet ${servletName} at ${contextPath}</h1>
+        <h1>${title}</h1>
+        <h2>Servlet ${servletName} at ${contextPath}</h2>
         ${content}      
     </body>
 </html>

@@ -4,11 +4,17 @@
  */
 package com.soat.javaee7.json;
 
+import com.soat.javaee7.servlet.CommonHttpServlet;
+import java.io.IOException;
 import java.io.StringReader;
 import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  *  An sample usage of JsonReader (DOM-based APIs)
@@ -16,12 +22,32 @@ import javax.json.JsonReader;
  * 
  * @author Julien Sadaoui
  */
-public class JsonReaderExample {
+@WebServlet(urlPatterns = {"/json-reader"})
+public class JsonReaderServlet extends CommonHttpServlet {
+    
+    private static final String TITLE = "An sample usage of JsonReader (DOM-based APIs)";
+    
+    @Override
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response) 
+        throws ServletException, IOException 
+    {
+        String json = "{\"firstName\":\"John\",\"lastName\":\"Smith\",\"age\":25,\"address\":"
+                + "{\"streetAddress\":\"21 2nd Street\",\"city\":\"New York\",\"state\":\"NY\",\"postalCode\":\"10021\"},"
+                + "\"phoneNumber\":[{\"type\":\"home\",\"number\":\"212 555-1234\"},{\"type\":\"fax\",\"number\":\"646 555-4567\"}]}";
+        StringBuilder content = new StringBuilder();
+        
+        // part 1 : read the firstname from the json
+        content.append("Example 1 : Read the firstname from the json<br />");
+        content.append("<br />");
+        content.append("Result: ").append(example1(json));
+        content.append("<br />");
+        
+    }
     
     /**
      *  Read the firstname from the JsonObject
      */
-    public static String readFirstName(String json) 
+    public String example1(String json) 
     {
         // create a JsonReader
         JsonReader reader = Json.createReader(new StringReader(json));
@@ -36,7 +62,7 @@ public class JsonReaderExample {
     /**
      *  Read the phone number from the JsonObject
      */
-    public static String readPhoneNumber(String json)
+    public String example2(String json)
     {
         // create a JsonReader
         JsonReader reader = Json.createReader(new StringReader(json));
@@ -54,7 +80,7 @@ public class JsonReaderExample {
     /**
      *  Read the phone number from the JsonObject
      */
-    public static String readPhoneType(String json)
+    public String example3(String json)
     {
         // create a JsonReader
         JsonReader reader = Json.createReader(new StringReader(json));
@@ -72,7 +98,7 @@ public class JsonReaderExample {
     /**
      *  Read the street address from the JsonObject
      */
-    public static String readStreetAddress(String json)
+    public String example4(String json)
     {
         // create a JsonReader
         JsonReader reader = Json.createReader(new StringReader(json));

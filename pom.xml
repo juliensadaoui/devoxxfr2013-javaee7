@@ -5,14 +5,8 @@
     <groupId>com.soat.javaee7</groupId>
     <artifactId>javaee7-examples</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-
+    <packaging>war</packaging>
     <name>JSR 342 - Java EE 7 Examples</name>
-    <modules>
-        <module>json</module>
-        <module>websocket</module>
-        <module>servlet</module>
-    </modules>
 	
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
@@ -20,12 +14,27 @@
     </properties>
 
     <dependencies>
-        <dependency>
+<!--        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>6.0</version>
             <scope>provided</scope>
+        </dependency>-->
+        
+        <!-- JSR 353 - Java API for JSON -->
+        <dependency>
+            <groupId>org.glassfish</groupId>
+            <artifactId>javax.json</artifactId>
+            <version>1.0-b06</version>
         </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1-b08</version>
+        </dependency>
+        
+        
+        <!-- Test dependencies -->
         <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
@@ -41,6 +50,7 @@
     </dependencies>
 
     <build>
+        <finalName>java-ee-7</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
