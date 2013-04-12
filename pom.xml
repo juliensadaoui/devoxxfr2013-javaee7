@@ -27,6 +27,26 @@
             <artifactId>javax.json</artifactId>
             <version>1.0-b06</version>
         </dependency>
+        
+        <!-- JSR 356: Java API for WebSocket -->
+        <dependency>
+           <groupId>javax.websocket</groupId>
+           <artifactId>javax.websocket-api</artifactId>
+           <version>1.0-rc5</version>
+       </dependency>    
+        <dependency>
+            <groupId>org.glassfish.tyrus</groupId>
+            <artifactId>tyrus-client</artifactId>
+            <version>1.0-rc3</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.glassfish.tyrus</groupId>
+            <artifactId>tyrus-container-grizzly</artifactId>
+            <version>1.0-rc3</version>
+            <scope>test</scope>
+        </dependency>  
+        
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
