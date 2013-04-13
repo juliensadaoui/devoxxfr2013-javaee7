@@ -22,6 +22,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import  com.soat.javaee7.websocket.annotation.HelloServer.MyEndPoint;
+import javax.websocket.ContainerProvider;
+import javax.websocket.WebSocketContainer;
 
 /**
  *
@@ -29,7 +32,9 @@ import static org.junit.Assert.*;
  */
 public class HelloServer {
 
-    
+    public static final String HOST_NAME = "localhost";
+    public static final int    PORT      = 8025;
+    public static final String ROOT_PATH = "/javaee7";
     
     @Before
     public void setUp() {
@@ -39,48 +44,72 @@ public class HelloServer {
     public void tearDown() {
     }
     
+    public Server startServer (String host, int port, String rootPath, Class<?>[] configuration)
+        throws DeploymentException
+    {
+        final Server server = new Server(host, port, rootPath, configuration);
+        server.start();
+        return server;
+    }
+   
+    public Server startServer(Class<?> configuration) throws DeploymentException {
+        return startServer(HOST_NAME, PORT, ROOT_PATH, new Class[]{ configuration });
+    }
+    
+    public void stopServer (Server server) {
+        if (server != null) server.stop();
+    }
+    
+
+    
    
     @Test
     public void testHello () throws DeploymentException {
-        final Server server = new Server("localhost", 8025, "/javaee7", MyServerConf.class);
-        server.start();
-     
+     // https://blogs.oracle.com/arungupta/entry/websocket_client_and_server_endpoint
+        // http://java.net/projects/tyrus/sources/source-code-repository/content/trunk/samples/echo/src/test/java/org/glassfish/tyrus/sample/echo/EchoTest.java?rev=607
+        
+        Server server = startServer(MyServerConf.class);
+        
         try {
-        final ClientManager client = ClientManager.createClient();
-        final Session session = client.connectToServer(new Endpoint() {
-            
-            @Override
-            public void onOpen(Session session, EndpointConfig config) {
-                try {
-                    session.addMessageHandler(new MessageHandler.Whole<String>() {
+       final WebSocketContainer container = ContainerProvider.getWebSocketContainer();
 
-                        @Override
-                        public void onMessage(String message) {
-                            System.out.println(message);
-                            assertEquals("jkj", "jh");
-                            throw new RuntimeException();
-                        }
-                    });
-                    
-                    session.getBasicRemote().sendText("blbla");
-                    
-                } catch (IOException ex) {
-                    Logger.getLogger(HelloServer.class.getName()).log(Level.SEVERE, null, ex);
-                                ex.printStackTrace();
-                }
-                
-            }
-        }, ClientEndpointConfig.Builder.create().build(), new URI("ws://localhost:8025/javaee7/websocket-programmatic-hello"));
+
+        MyEndPoint endPoint = new MyEndPoint();
+        final Session session = container.connectToServer(endPoint, ClientEndpointConfig.Builder.create().build(), new URI("ws://localhost:8025/javaee7/websocket-programmatic-hello"));
+        
+        session.getBasicRemote().sendText("blbla");
+
+        System.out.println(endPoint.getMessage());
         } 
-        catch (Exception e) {
+        catch (URISyntaxException | DeploymentException | IOException e) {
             Logger.getLogger(HelloServer.class.getName()).log(Level.SEVERE, null, e);
             e.printStackTrace();
         }
         finally {
-            server.stop();
+            stopServer(server);
         }
         
+    }
+    
+    class MyEndPoint extends Endpoint {
+
+        private String message;
         
+        @Override
+        public void onOpen(Session session, EndpointConfig endPointConfig) 
+        {
+            session.addMessageHandler(new MessageHandler.Whole<String>() {
+
+                @Override
+                public void onMessage(String text) {
+                    message = text;
+                }
+            });
+        }
+           
+        public String getMessage() {
+            return message;
+        }
     }
 
 }
