@@ -25,7 +25,7 @@ public class HelloServer extends Endpoint {
          session.addMessageHandler(new MessageHandler.Whole<String>() {
              public void onMessage(String text) {
                  try {
-                     remote.sendText("Hello" + text);
+                     remote.sendText("Hello " + text);
                  } catch (IOException ioe) {
                      // handle send failure here
                  }
