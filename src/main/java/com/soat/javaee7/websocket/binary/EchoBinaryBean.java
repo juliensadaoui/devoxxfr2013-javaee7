@@ -1,4 +1,4 @@
-package com.soat.javaee7.websocket;
+package com.soat.javaee7.websocket.binary;
 
 import java.nio.ByteBuffer;
 import javax.websocket.OnMessage;
@@ -11,10 +11,10 @@ import javax.websocket.server.ServerEndpoint;
  * @author Julien Sadaoui
  */
 @ServerEndpoint("/websocket-binary")
-public class BinaryBean {
+public class EchoBinaryBean {
         
     @OnMessage
-    public ByteBuffer echoBinary(ByteBuffer byteBuffer) {
+    public ByteBuffer echo(ByteBuffer byteBuffer) {
         
         // transform the "ByteBuffer" message
         final byte[] bytes = new byte[byteBuffer.remaining()];

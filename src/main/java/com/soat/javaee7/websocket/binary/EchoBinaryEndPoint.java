@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.soat.javaee7.websocket;
+package com.soat.javaee7.websocket.binary;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
@@ -18,7 +18,7 @@ import javax.websocket.Session;
  *
  * @author Julien Sadaoui
  */
-public class BinaryEndPoint extends Endpoint
+public class EchoBinaryEndPoint extends Endpoint
 {
 
     @Override

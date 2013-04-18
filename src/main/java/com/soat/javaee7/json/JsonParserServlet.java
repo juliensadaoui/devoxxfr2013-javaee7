@@ -6,9 +6,7 @@ package com.soat.javaee7.json;
 
 import com.soat.javaee7.servlet.CommonHttpServlet;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.StringReader;
-import java.util.Iterator;
 import javax.json.Json;
 import javax.json.stream.JsonParser;
 import javax.json.stream.JsonParser.Event;
@@ -57,6 +55,8 @@ public class JsonParserServlet extends CommonHttpServlet {
         content.append("<br />");
         content.append("Street address: ").append(example3(json));
         content.append("<br />");
+        
+        this.display(request, response, TITLE, content.toString());  
     }
     
     /**

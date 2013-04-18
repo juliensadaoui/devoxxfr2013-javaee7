@@ -1,4 +1,4 @@
-package com.soat.javaee7.websocket;
+package com.soat.javaee7.websocket.hello;
 
 import java.io.IOException;
 import javax.websocket.Endpoint;
@@ -13,7 +13,7 @@ import javax.websocket.Session;
  * 
  * @author Julien Sadaoui
  */
-public class HelloEndPoint extends Endpoint {
+public class HelloTextEndPoint extends Endpoint {
 
     @Override
     public void onOpen(Session session, EndpointConfig config) {

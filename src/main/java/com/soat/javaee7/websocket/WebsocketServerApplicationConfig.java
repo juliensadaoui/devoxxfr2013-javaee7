@@ -1,5 +1,10 @@
 package com.soat.javaee7.websocket;
 
+import com.soat.javaee7.websocket.binary.EchoBinaryBean;
+import com.soat.javaee7.websocket.binary.EchoBinaryEndPoint;
+import com.soat.javaee7.websocket.encoder.BookBean;
+import com.soat.javaee7.websocket.hello.HelloTextEndPoint;
+import com.soat.javaee7.websocket.hello.HelloTextBean;
 import java.util.HashSet;
 import java.util.Set;
 import javax.websocket.Endpoint;
@@ -18,8 +23,8 @@ public class WebsocketServerApplicationConfig implements ServerApplicationConfig
     @Override
     public Set<ServerEndpointConfig> getEndpointConfigs(Set<Class<? extends Endpoint>> set) {
         return new HashSet<ServerEndpointConfig>() {{
-            add(ServerEndpointConfig.Builder.create(HelloEndPoint.class, "/websocket-hello-programmatic").build());
-            add(ServerEndpointConfig.Builder.create(BinaryEndPoint.class, "/websocket-binary-programmatic").build());
+            add(ServerEndpointConfig.Builder.create(HelloTextEndPoint.class, "/websocket-hello-programmatic").build());
+            add(ServerEndpointConfig.Builder.create(EchoBinaryEndPoint.class, "/websocket-binary-programmatic").build());
         }};
     }
 
@@ -29,8 +34,9 @@ public class WebsocketServerApplicationConfig implements ServerApplicationConfig
     @Override
     public Set<Class<?>> getAnnotatedEndpointClasses(Set<Class<?>> set) {
         return new HashSet<Class<?>>() {{
-            add(HelloBean.class);
-            add(BinaryBean.class);
+            add(HelloTextBean.class);
+            add(EchoBinaryBean.class);
+            add(BookBean.class);
         }};
     }
     

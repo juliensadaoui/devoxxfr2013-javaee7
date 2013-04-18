@@ -1,4 +1,4 @@
-package com.soat.javaee7.websocket;
+package com.soat.javaee7.websocket.hello;
 
 import javax.websocket.OnMessage;
 import javax.websocket.server.ServerEndpoint;
@@ -10,7 +10,7 @@ import javax.websocket.server.ServerEndpoint;
  * @author Julien Sadaoui
  */
 @ServerEndpoint("/websocket-hello")
-public class HelloBean {
+public class HelloTextBean {
     
     /**
      *  The "helloMessage" method is called when a message is received by this endpoint
