@@ -24,22 +24,22 @@ public class HelloTest extends AbstractWebsocketTest
      *  Test 1: end point using annotations
      */
     @Test
-    public void testHelloUsingAnnotations() throws Exception {
-        testHelloEndPoint("/websocket-hello", "devoxxfr2013-javaee7", "Hello devoxxfr2013-javaee7 (from your server).");
+    public void testHelloTextUsingAnnotations() throws Exception {
+        testHelloTextEndPoint("/websocket-hello", "devoxxfr2013-javaee7", "Hello devoxxfr2013-javaee7 (from your server).");
     }
 
     /**
      *  Test 2: end point using programmatic
      */
     @Test
-    public void testHelloUsingProgrammatic() throws Exception {
-        testHelloEndPoint("/websocket-hello-programmatic", "devoxxfr2013-javaee7", "Hello devoxxfr2013-javaee7 (from your server).");
+    public void testHelloTextUsingProgrammatic() throws Exception {
+        testHelloTextEndPoint("/websocket-hello-programmatic", "devoxxfr2013-javaee7", "Hello devoxxfr2013-javaee7 (from your server).");
     }
     
     /**
      *  Sends the "hello" message  with a programmatic client endpoint.
      */
-    public void testHelloEndPoint(final String path, final String name, final String expected) 
+    public void testHelloTextEndPoint(final String path, final String name, final String expected) 
         throws Exception
     {
         final CountDownLatch countMessage = new CountDownLatch(1);

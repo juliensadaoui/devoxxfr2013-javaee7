@@ -4,18 +4,9 @@
  */
 package com.soat.javaee7.websocket;
 
-import com.soat.javaee7.websocket.encoder.Book;
-import com.soat.javaee7.websocket.encoder.BookDecoder;
 import java.io.IOException;
-import java.io.StringReader;
-import java.nio.ByteBuffer;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.json.Json;
-import javax.json.JsonObject;
-import javax.json.JsonReader;
 import javax.websocket.ClientEndpointConfig;
 import javax.websocket.ContainerProvider;
 import javax.websocket.Endpoint;
@@ -37,14 +28,19 @@ public class BookTest extends AbstractWebsocketTest
     private String badMessage = "{\"name\":\"JavaEE7\",\"description\":\"JavaEE7Platform\"}";
     
     @Test
-    public void testEncoderBook() throws Exception {       
-        testBinaryEndPoint("/websocket-encoder-book", message, expected);
+    public void testBookEncoderEndPoint() throws Exception {       
+        testBookEncoderEndPoint("/websocket-encoder-book", message, expected);
+    }
+    
+    @Test(expected = AssertionError.class)
+    public void testBookEncoderEndPointWithBadMessage() throws Exception {
+        testBookEncoderEndPoint("/websocket-encoder-book", badMessage, expected);
     }
     
     /**
      *  Sends the json message with a programmatic client endpoint.
      */
-    public void testBinaryEndPoint(final String path, final String message, final String expected)
+    public void testBookEncoderEndPoint(final String path, final String message, final String expected)
         throws Exception
     {
         final CountDownLatch countMessage = new CountDownLatch(1);
@@ -59,7 +55,6 @@ public class BookTest extends AbstractWebsocketTest
 
                     @Override
                     public void onMessage(String message) {
-                        System.out.println(message);
                         // read the json message
                         if (message.equals(expected)) {
                             countMessage.countDown();
