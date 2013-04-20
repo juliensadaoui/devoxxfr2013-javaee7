@@ -12,6 +12,7 @@ import javax.websocket.server.ServerApplicationConfig;
 import javax.websocket.server.ServerEndpointConfig;
 
 /**
+ *  TODO add comments
  *
  * @author Julien Sadaoui
  */

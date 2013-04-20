@@ -1,0 +1,10 @@
+<job id="bookJob" xmlns="http://batch.jsr352/jsl">
+    <step id="myStep" >
+        <chunk item-count="10">
+            <reader ref="bookItemReader"></reader> 
+            <processor ref="bookItemProcessor"></processor>
+            <writer ref="bookItemWriter"></writer> 
+        </chunk>	
+    </step>
+</job>
+

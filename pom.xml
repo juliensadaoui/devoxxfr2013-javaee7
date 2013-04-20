@@ -50,8 +50,8 @@
         <!-- JSR 352 - Batch Applications in Java EE 7 -->
         <dependency>
             <groupId>javax.batch</groupId>
-            <artifactId>javax.batch-api</artifactId>
-            <version>1.0-b26</version>
+            <artifactId>javax.batch-api-all</artifactId>
+            <version>1.0-b17</version>
         </dependency>
         
         <dependency>
