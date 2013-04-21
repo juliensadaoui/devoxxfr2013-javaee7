@@ -1,4 +1,5 @@
-<job id="bookJob" xmlns="http://batch.jsr352/jsl">
+<?xml version="1.0" encoding="UTF-8"?>
+<job id="bookJob" version="1.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee">
     <step id="myStep" >
         <chunk item-count="10">
             <reader ref="bookItemReader"></reader> 

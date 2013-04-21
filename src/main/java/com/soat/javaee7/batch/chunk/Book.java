@@ -1,8 +1,9 @@
 package com.soat.javaee7.batch.chunk;
 
 /**
- *
- * @author Julien
+ * This class represents a book item
+ * 
+ * @author Julien Sadaoui
  */
 public class Book {
    private String name;

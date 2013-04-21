@@ -1,0 +1,57 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.soat.javaee7.batch;
+
+import com.soat.javaee7.batch.chunk.Book;
+import com.soat.javaee7.batch.chunk.BookItemProcessor;
+import static org.fest.assertions.Assertions.assertThat;
+import org.junit.Test;
+
+/**
+ *
+ * @author Julien Sadaoui
+ */
+public class BookItemProcessorTest {
+    
+    /**
+     * Test 1: The year is divisible by 2, the price is updated
+     * 
+     * @throws Exception 
+     */
+    @Test
+    public void testProcessItem_valueChanged() throws Exception {
+        Book book = new Book();
+        book.setName("book1");
+        book.setDescription("description1");
+        book.setAuthor("author1");
+        book.setYear(2002);
+        book.setPrice(10);
+             
+        BookItemProcessor processor = new BookItemProcessor();
+        book = processor.processItem(book);
+        
+        assertThat(book.getPrice()).isEqualTo(8.5);
+    }
+    
+    /**
+     * Test 2: The year is not divisible by 2, the price is not updated
+     * 
+     * @throws Exception 
+     */
+    @Test
+    public void testProcessItem_valueUnchanged() throws Exception {
+        Book book = new Book();
+        book.setName("book2");
+        book.setDescription("description2");
+        book.setAuthor("author2");
+        book.setYear(199);
+        book.setPrice(25);
+             
+        BookItemProcessor processor = new BookItemProcessor();
+        book = processor.processItem(book);
+        
+        assertThat(book.getPrice()).isEqualTo(25);
+    }
+}

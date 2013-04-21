@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<batch-artifacts xmlns="http://jcp.org.batch/jsl">
+<batch-artifacts xmlns="http://xmlns.jcp.org/xml/ns/javaee">
     <ref id="bookItemReader" class="com.soat.javaee7.batch.chunk.BookItemReader"/>
     <ref id="bookItemProcessor" class="com.soat.javaee7.batch.chunk.BookItemProcessor"/>
     <ref id="bookItemWriter" class="com.soat.javaee7.batch.chunk.BookItemWriter"/>
