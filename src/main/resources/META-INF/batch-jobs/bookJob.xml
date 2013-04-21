@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<job id="bookJob" version="1.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee">
-    <step id="myStep" >
+<job id="bookJob" xmlns="http://xmlns.jcp.org/xml/ns/javaee">
+<!--version="1.0"--> 
+    <step id="step" >
         <chunk item-count="10">
             <reader ref="bookItemReader"></reader> 
             <processor ref="bookItemProcessor"></processor>

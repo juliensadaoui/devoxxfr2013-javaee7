@@ -23,9 +23,8 @@ import javax.servlet.http.HttpServletResponse;
  * @author Juliens Sadaoui
  */
 @WebServlet(urlPatterns = {"/batch-chunk"})
-public class BatchChunkServlet extends CommonHttpServlet
+public class BookBatchServlet extends CommonHttpServlet
 {
-
     @Override
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
