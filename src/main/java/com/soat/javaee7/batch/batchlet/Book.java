@@ -7,24 +7,18 @@ package com.soat.javaee7.batch.batchlet;
 public class Book 
 {
     private String name;
-    private int    stock;
-    private int    year;
+    private int    quantity;
 
-    public Book(String name, int stock, int year) {
+    public Book(String name, int quantity) {
         this.name  = name;
-        this.stock = stock;
-        this.year  = year;
+        this.quantity = quantity;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getStock() {
-        return stock;
-    }
-
-    public int getYear() {
-        return year;
+    public int getQuantity() {
+        return quantity;
     }
 }
