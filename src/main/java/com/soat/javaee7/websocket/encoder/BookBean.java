@@ -4,6 +4,7 @@ import javax.websocket.OnMessage;
 import javax.websocket.server.ServerEndpoint;
 
 /**
+ *  A example endpoint that encodes/decodes a custom objet (book)
  *
  * @author Julien Sadaoui
  */
@@ -14,7 +15,6 @@ public class BookBean
 {   
     @OnMessage
     public Book updateBook(Book book) {
-        System.out.println("kkkk");
         book.setName("Updated" + book.getName());
         book.setDescription("Updated" + book.getDescription());
         book.setAuthor("Updated" + book.getAuthor());

@@ -1,45 +1,28 @@
 package com.soat.javaee7.websocket;
 
 import java.io.IOException;
-
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import javax.websocket.ClientEndpointConfig;
+import javax.websocket.ContainerProvider;
 import javax.websocket.Endpoint;
 import javax.websocket.EndpointConfig;
 import javax.websocket.MessageHandler;
 import javax.websocket.Session;
-import org.junit.Test;
-import javax.websocket.ContainerProvider;
 import static org.junit.Assert.assertEquals;
+import org.junit.Test;
 
 /**
- *  Tests the Websocket Endpoint that displays a text message to the sender. 
- * 
+ *  Test the simple chat based on the websocket
+ *
  * @author Julien Sadaoui
  */
-public class HelloTest extends AbstractWebsocketTest
-{   
-    /**
-     *  Test 1: end point using annotations
-     */
-    @Test
-    public void testHelloTextUsingAnnotations() throws Exception {
-        testHelloTextEndPoint("/websocket-hello", "devoxxfr2013-javaee7", "Hello devoxxfr2013-javaee7 (from your server).");
-    }
+public class ChatTest extends AbstractWebsocketTest
+{
+    private static final String MESSAGE = "This message is sent from a client end point";
 
-    /**
-     *  Test 2: end point using programmatic
-     */
     @Test
-    public void testHelloTextUsingProgrammatic() throws Exception {
-        testHelloTextEndPoint("/websocket-hello-programmatic", "devoxxfr2013-javaee7", "Hello devoxxfr2013-javaee7 (from your server).");
-    }
-    
-    /**
-     *  Sends the "hello" message  with a programmatic client endpoint.
-     */
-    public void testHelloTextEndPoint(final String path, final String name, final String expected) 
+    public void testChatEndPoint() 
         throws Exception
     {
         final CountDownLatch countMessage = new CountDownLatch(1);
@@ -54,16 +37,16 @@ public class HelloTest extends AbstractWebsocketTest
 
                     @Override
                     public void onMessage(String message) {
-                        if (message.equals(expected))
+                        if (message.equals(MESSAGE))
                             countMessage.countDown();
                     }
                 });
                 
                 // send the message to the server
-                try { session.getBasicRemote().sendText(name);
+                try { session.getBasicRemote().sendText(MESSAGE);
                 } catch (IOException ex) {}
             }
-        }, ClientEndpointConfig.Builder.create().build(), getURI(path));
+        }, ClientEndpointConfig.Builder.create().build(), getURI("/websocket-chat"));
              
         // wait the received message
         countMessage.await(1, TimeUnit.SECONDS);

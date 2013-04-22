@@ -2,6 +2,7 @@ package com.soat.javaee7.websocket;
 
 import com.soat.javaee7.websocket.binary.EchoBinaryBean;
 import com.soat.javaee7.websocket.binary.EchoBinaryEndPoint;
+import com.soat.javaee7.websocket.chat.ChatBean;
 import com.soat.javaee7.websocket.encoder.BookBean;
 import com.soat.javaee7.websocket.hello.HelloTextEndPoint;
 import com.soat.javaee7.websocket.hello.HelloTextBean;
@@ -38,6 +39,7 @@ public class WebsocketServerApplicationConfig implements ServerApplicationConfig
             add(HelloTextBean.class);
             add(EchoBinaryBean.class);
             add(BookBean.class);
+            add(ChatBean.class);
         }};
     }
     

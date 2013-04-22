@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.soat.javaee7.websocket.encoder;
 
 import java.io.StringReader;
@@ -14,7 +10,7 @@ import javax.websocket.EndpointConfig;
 
 
 /**
- *  
+ *  Decodes a book objet from a web socket message in the form of a json string.
  *
  * @author Julien Sadaoui
  */

@@ -2,4 +2,5 @@
     <ref id="bookItemReader" class="com.soat.javaee7.batch.chunk.BookItemReader"/>
     <ref id="bookItemProcessor" class="com.soat.javaee7.batch.chunk.BookItemProcessor"/>
     <ref id="bookItemWriter" class="com.soat.javaee7.batch.chunk.BookItemWriter"/>
+    <ref id="bookBatchlet" class="com.soat.javaee7.batch.batchlet.BookBatchlet"/>
 </batch-artifacts>

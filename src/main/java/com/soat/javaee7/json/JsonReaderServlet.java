@@ -31,13 +31,28 @@ public class JsonReaderServlet extends CommonHttpServlet {
                 + "{\"streetAddress\":\"21 2nd Street\",\"city\":\"New York\",\"state\":\"NY\",\"postalCode\":\"10021\"},"
                 + "\"phoneNumber\":[{\"type\":\"home\",\"number\":\"212 555-1234\"},{\"type\":\"fax\",\"number\":\"646 555-4567\"}]}";
         StringBuilder content = new StringBuilder();
+      
+        content.append("Json Example<br />");
+        content.append("<pre><code>");
+        content.append(json);
+        content.append("</code></pre>");
         
         // part 1 : read the firstname from the json
         content.append("Example 1 : Read the firstname from the json<br />");
-        content.append("<br />");
         content.append("Result: ").append(example1(json));
-        content.append("<br />");
+        content.append("<br /><br />");
+  
+        // part 2 : read the phone number from the json
+        content.append("Example 2 : Read phone number from the json<br />");
+        content.append("Result: ").append(example2(json));
+        content.append("<br /><br />");
         
+        // part 2 : read the phone the from the json
+        content.append("Example 3 : Read the phone type from the json<br />");
+        content.append("Result: ").append(example3(json));
+        content.append("<br /><br />");
+       
+        this.display(request, response, TITLE, content.toString());  
     }
     
     /**
@@ -74,7 +89,7 @@ public class JsonReaderServlet extends CommonHttpServlet {
     }
     
     /**
-     *  Read the phone number from the JsonObject
+     *  Read the phone type from the JsonObject
      */
     public String example3(String json)
     {

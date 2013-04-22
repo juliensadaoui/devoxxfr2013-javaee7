@@ -25,14 +25,14 @@ public class BookBatchlet implements Batchlet
 
     @Override
     public String process() throws Exception {
-        
+        List<Book> booksToDeleted = new ArrayList<>();
         for (Book book : books) {
             
             if (book.getQuantity() == 0) {
-                books.remove(book);
+                booksToDeleted.add(book);
             }
         }
-        
+        books.removeAll(booksToDeleted);
         return "SUCCESS";
     }
 

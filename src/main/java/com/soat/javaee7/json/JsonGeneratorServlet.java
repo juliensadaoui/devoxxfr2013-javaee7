@@ -42,7 +42,7 @@ public class JsonGeneratorServlet extends CommonHttpServlet {
             content.append(baos.toString());
             content.append("</code></pre>");
             
-            // part 3 : build a object with array
+            // part 3 : build a object with array and embedded object
             example2(baos);
             content.append("Example 3 : Writes a simple object with array and embedded object in a streaming way<br />");
             content.append("<pre><code>");

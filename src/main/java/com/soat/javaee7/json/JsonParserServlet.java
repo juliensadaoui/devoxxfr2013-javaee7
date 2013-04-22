@@ -8,6 +8,7 @@ import javax.json.stream.JsonParser;
 import javax.json.stream.JsonParser.Event;
 import static javax.json.stream.JsonParser.Event.START_OBJECT;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Julien Sadaoui
  */
+@WebServlet(urlPatterns = {"/json-parser"})
 public class JsonParserServlet extends CommonHttpServlet {
 
     private static final String TITLE = "An sample usage of JsonBuilder (Streaming APIs)";
@@ -36,21 +38,18 @@ public class JsonParserServlet extends CommonHttpServlet {
         
         // part 1 : Read the lastname from an input source
         content.append("Example 1 : Read the lastname from an input source<br />");
-        content.append("<br />");
         content.append("Lastname: ").append(example1(json));
-        content.append("<br />");
+        content.append("<br /><br />");
     
-        // part 1 : Read the phone number (home) from an input source. 
+        // part 2 : Read the phone number (home) from an input source. 
         content.append("Example 2 : Read the phone number (home) from an input source<br />");
-        content.append("<br />");
         content.append("Phone number: ").append(example2(json));
-        content.append("<br />");
+        content.append("<br /><br />");
         
-        // part 1 : Read the lastname from an input source
-        content.append("Example 2 : Read the street address from an input source<br />");
-        content.append("<br />");
+        // part 3 : Read the street address from an input source
+        content.append("Example 3 : Read the street address from an input source<br />");
         content.append("Street address: ").append(example3(json));
-        content.append("<br />");
+        content.append("<br /><br />");
         
         this.display(request, response, TITLE, content.toString());  
     }
