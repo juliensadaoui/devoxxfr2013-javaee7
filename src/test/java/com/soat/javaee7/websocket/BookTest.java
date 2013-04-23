@@ -25,48 +25,11 @@ public class BookTest extends AbstractWebsocketTest
     
     @Test
     public void testBookEncoderEndPoint() throws Exception {       
-        testBookEncoderEndPoint("/websocket-encoder-book", message, expected);
+        shouldSendTextMessage("/websocket-encoder-book", message, expected);
     }
     
     @Test(expected = AssertionError.class)
     public void testBookEncoderEndPointWithBadMessage() throws Exception {
-        testBookEncoderEndPoint("/websocket-encoder-book", badMessage, expected);
-    }
-    
-    /**
-     *  Sends the json message with a programmatic client endpoint.
-     */
-    public void testBookEncoderEndPoint(final String path, final String message, final String expected)
-        throws Exception
-    {
-        final CountDownLatch countMessage = new CountDownLatch(1);
-        
-        // create a programmatic client endpoint
-        ContainerProvider.getWebSocketContainer().connectToServer(new Endpoint() {
-
-            @Override
-            public void onOpen(Session session, EndpointConfig config) {
-                
-                session.addMessageHandler(new MessageHandler.Whole<String>() {
-
-                    @Override
-                    public void onMessage(String message) {
-                        // read the json message
-                        if (message.equals(expected)) {
-                            countMessage.countDown();
-                        }
-                    }
-                });
-                try {
-                    session.getBasicRemote().sendText(message); 
-                } catch (IOException ex) {}
-                
-            }
-        }, ClientEndpointConfig.Builder.create().build(), getURI(path));
-                
-
-        // wait the received message
-        countMessage.await(1, TimeUnit.SECONDS);
-        assertEquals("Number of received messages is not 0.", 0, countMessage.getCount());
+        shouldSendTextMessage("/websocket-encoder-book", badMessage, expected);
     }
 }
