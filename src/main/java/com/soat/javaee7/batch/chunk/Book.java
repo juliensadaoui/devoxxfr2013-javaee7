@@ -11,7 +11,7 @@ public class Book {
    private String author;
    private int    year;
    private double price;
-
+    
     public String getName() {
         return name;
     }

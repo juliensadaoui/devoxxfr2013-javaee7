@@ -26,7 +26,7 @@ public class JsonReaderServletTest {
      *  Test 1 : Read the first name from the json
      */
     @Test
-    public void testExample1()
+    public void shouldGetFirstname()
     {
          String json = "{\"firstName\":\"John\",\"lastName\":\"Smith\",\"age\":25}";
          String firstName = jsonReaderServlet.example1(json);
@@ -37,7 +37,7 @@ public class JsonReaderServletTest {
      *  Test 3 : read the phone number from the json
      */
     @Test
-    public void testExample2()
+    public void shouldGetPhoneNumber()
     {
         String json = "{\"firstName\":\"John\",\"lastName\":\"Smith\",\"age\":28,\"phoneNumber\":[{\"type\":\"home\",\"number\":\"212 555-1234\"},{\"type\":\"fax\",\"number\":\"646 555-4567\"}]}";
         String phoneNumber = jsonReaderServlet.example2(json);
@@ -48,7 +48,7 @@ public class JsonReaderServletTest {
      *  Test 3 : read the phone type from the json
      */
     @Test
-    public void testExample3()
+    public void shouldGetPhoneType()
     {
         String json = "{\"firstName\":\"John\",\"lastName\":\"Smith\",\"age\":28,\"phoneNumber\":[{\"type\":\"home\",\"number\":\"212 555-1234\"},{\"type\":\"fax\",\"number\":\"646 555-4567\"}]}";
         String phoneNumber = jsonReaderServlet.example3(json);
@@ -59,7 +59,7 @@ public class JsonReaderServletTest {
      *  Test 4 : Read the street address from the json
      */
     @Test
-    public void testExample4()
+    public void shouldGetStreetAddress()
     {
         String json = "{\"firstName\":\"John\",\"lastName\":\"Smith\",\"age\":25,\"address\":{\"streetAddress\":\"21 2nd Street\",\"city\":\"New York\",\"state\":\"NY\",\"postalCode\":\"10021\"}}";
         String streetAddress = jsonReaderServlet.example4(json);

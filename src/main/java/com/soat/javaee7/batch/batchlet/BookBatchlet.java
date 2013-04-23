@@ -1,6 +1,7 @@
 package com.soat.javaee7.batch.batchlet;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import javax.batch.api.Batchlet;
 
@@ -25,15 +26,19 @@ public class BookBatchlet implements Batchlet
 
     @Override
     public String process() throws Exception {
-        List<Book> booksToDeleted = new ArrayList<>();
-        for (Book book : books) {
-            
-            if (book.getQuantity() == 0) {
-                booksToDeleted.add(book);
-            }
+       
+        // removes the items
+        Iterator<Book> it = books.iterator();
+        while (it.hasNext()) {
+            if (it.next().getQuantity() == 0) 
+                it.remove();
         }
-        books.removeAll(booksToDeleted);
-        return "SUCCESS";
+        
+        // display the result
+        System.out.print("List of books (size=" + books.size() + "):");
+        for (Book book : books) { System.out.print(" " + book.getName()); }
+        
+        return "COMPLETED";
     }
 
     @Override

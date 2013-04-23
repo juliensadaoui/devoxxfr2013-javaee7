@@ -25,7 +25,7 @@ public class JsonGeneratorServletTest {
     }
     
     @Test
-    public void testExample1() {
+    public void shouldGenerateASimpleObject() {
         String expectedValue = "{\"firstName\":\"John\",\"lastName\":\"Smith\",\"age\":25}";
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         jsonGeneratorServlet.example1(baos);
@@ -33,7 +33,7 @@ public class JsonGeneratorServletTest {
     }
     
     @Test
-    public void testExample2() {
+    public void shouldGenerateASimpleObjectWithArray() {
         String expectedValue = "{\"firstName\":\"John\",\"lastName\":\"Smith\",\"age\":28,\"phoneNumber\":[{\"type\":\"home\",\"number\":\"212 555-1234\"},{\"type\":\"fax\",\"number\":\"646 555-4567\"}]}";
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         jsonGeneratorServlet.example2(baos);
@@ -41,7 +41,7 @@ public class JsonGeneratorServletTest {
     }
     
     @Test
-    public void testExample3() {
+    public void shouldGenerateASimpleObjectWithArrayAndEmbeddedObject() {
         String expectedValue = "{\"firstName\":\"John\",\"lastName\":\"Smith\",\"age\":28,\"address\":{\"streetAddress\":\"21 2nd Street\",\"city\":\"New York\",\"state\":\"NY\",\"postalCode\":\"10021\"},\"phoneNumber\":[{\"type\":\"home\",\"number\":\"212 555-1234\"},{\"type\":\"fax\",\"number\":\"646 555-4567\"}]}";
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         jsonGeneratorServlet.example3(baos);

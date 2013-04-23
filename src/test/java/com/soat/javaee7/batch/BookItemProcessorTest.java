@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.soat.javaee7.batch;
 
 import com.soat.javaee7.batch.chunk.Book;
@@ -10,6 +6,7 @@ import static org.fest.assertions.Assertions.assertThat;
 import org.junit.Test;
 
 /**
+ *  Simple test for {@link BookItemProcessor}
  *
  * @author Julien Sadaoui
  */
@@ -21,7 +18,7 @@ public class BookItemProcessorTest {
      * @throws Exception 
      */
     @Test
-    public void testProcessItem_valueChanged() throws Exception {
+    public void shouldUpdateThePriceOfBook() throws Exception {
         Book book = new Book();
         book.setName("book1");
         book.setDescription("description1");
@@ -41,7 +38,7 @@ public class BookItemProcessorTest {
      * @throws Exception 
      */
     @Test
-    public void testProcessItem_valueUnchanged() throws Exception {
+    public void shouldNotUpdateThePriceOfBook() throws Exception {
         Book book = new Book();
         book.setName("book2");
         book.setDescription("description2");

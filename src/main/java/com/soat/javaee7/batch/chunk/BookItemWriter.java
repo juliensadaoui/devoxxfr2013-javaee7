@@ -38,7 +38,7 @@ public class BookItemWriter implements ItemWriter<Book>
     @Override
     public void close() throws Exception {
         JsonArray result = builder.build();
-        System.out.println(result.toString());
+        System.out.print(result.toString());
     }
 
     @Override

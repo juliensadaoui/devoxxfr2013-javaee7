@@ -13,7 +13,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <script language="javascript" type="text/javascript">
-            var wsUri = "ws://localhost:8080/javaee7/websocket/programmatic/hello";
+            var wsUri = "ws://localhost:8080/javaee7/websocket-hello";
             var websocket = new WebSocket(wsUri);
             websocket.onopen = function(evt) { onOpen(evt) };
             websocket.onmessage = function(evt) { onMessage(evt) };
