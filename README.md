@@ -4,6 +4,8 @@ Exploration of the JSR 342 (Java EE 7)
 
 # Documentation
 
+* Java EE 7.0 - [JSR 342](http://jcp.org/en/jsr/detail?id=342)
+
 # Packages description (in order of the articles)
 
 * com.soat.javaee7.json 		: JSR 353 - Java API for JSON Processing
