@@ -1,16 +1,18 @@
+var websocket = null;
+
 function init() {
     output = document.getElementById("output");
 }
 
 function connectToServer(uri) {
-    var websocket = new WebSocket(wsUri);
+    websocket = new WebSocket(uri);
     websocket.onopen = function(evt) { onOpen(evt) };
     websocket.onmessage = function(evt) { onMessage(evt) };
     websocket.onerror = function(evt) { onError(evt) };    
 }
 
 function send_binary() {
-    var buffer = new ArrayBuffer(myField.value.length);
+    var buffer = new ArrayBuffer(textField.value.length);
     var bytes = new Uint8Array(buffer);
     for (var i=0; i<bytes.length; i++) {
         bytes[i] = i;
@@ -20,8 +22,8 @@ function send_binary() {
 }            
 
 function send_text() {
-    websocket.send(textID.value);
-    writeToScreen("SENT (text): " + textID.value);
+    websocket.send(textField.value);
+    writeToScreen("SENT (text): " + textField.value);
 }
 
 function onOpen(evt) {

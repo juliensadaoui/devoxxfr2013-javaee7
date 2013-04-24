@@ -10,7 +10,7 @@
     <a href="json-generator">An sample usage of JsonBuilder (Streaming APIs)</a><br />
     
     <h2>JSR 356 - Java API for WebSocket</h2>
-    <a href="websocket.jsp">An sample usage of a simple endpoint that sends a text message.</a><br />
+    <a href="websocket/text.jsp">An sample usage of a simple endpoint that sends a text message.</a><br />
     
     <h2>JSR 352 - Batch Applications in Java EE 7</h2>
     <a href="batch-chunk">An sample usage of a simple chuck step</a><br />
