@@ -18,7 +18,7 @@ import javax.ws.rs.core.UriInfo;
  *
  * @author Julien
  */
-@Path("/rest-book")
+@Path("/book")
 public class BookRestService 
 {
     @Context
