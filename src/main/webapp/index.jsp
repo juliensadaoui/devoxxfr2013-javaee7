@@ -17,5 +17,7 @@
     <a href="batch-batchlet">An sample usage of a simple batchlet step</a><br />
     
     <h2>JSR 236 - Concurrency Utilities for Java EE</h2>
+    <a href="concurrency-runnable">An sample usage of a runnable task</a><br />
+    <a href="concurrency-callable">An sample usage of a callable task</a><br />
 </body>
 </html>
