@@ -15,7 +15,7 @@ public class CallableTask implements Callable<Book>
     public Book call() throws Exception {
         
         try {
-            // Simulate that receiving  the book takes between 0 and 2 seconds
+            // Simulate that receiving the book takes between 0 and 2 seconds
             Thread.sleep(Math.round(Math.random()* 2.0 * 1000));
           
         } catch (InterruptedException e) {}

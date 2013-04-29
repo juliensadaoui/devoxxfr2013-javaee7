@@ -10,10 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- *  see https://blogs.oracle.com/arungupta/entry/concurrency_utilities_for_java_ee
- *  see http://branchandbound.net/blog/java/2012/07/modern-concurrency-and-javaee/
- *  see http://zenika.developpez.com/articles/java/core/javaprogconcurrente/
- * 
  *  A servlet that executes a runnable task using JSR 236 (Concurrency Utilities for Java EE) 
  * 
  * @author Julien Sadaoui
@@ -32,13 +28,14 @@ public class RunnableServlet extends CommonHttpServlet
         
         StringBuilder content = new StringBuilder();
         
-        Runnable task = new RunnableTask();
+        content.append("About to start the task:<br />"); 
+        content.append("This task print the first 10 Fibonacci numbers to the console.<br /><br/>");    
         
         // This task is executed to the executor using the execute method
-        executor.execute(task);
-        content.append("Description:<br />"); 
-        content.append("This task print the first 10 Fibonacci numbers to the console.<br />");
+        executor.execute(new RunnableTask());    
         
+        content.append("Check server.log for output from the runnable task.");
+            
         this.display(request, response, TITLE, content.toString());  
     }
 }
