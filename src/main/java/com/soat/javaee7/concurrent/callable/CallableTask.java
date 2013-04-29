@@ -20,6 +20,6 @@ public class CallableTask implements Callable<Book>
           
         } catch (InterruptedException e) {}
         
-        return new Book("title","description",100,"author");
+        return new Book("Java EE 6 with GlassFish 3","Java Enterprise Edition (Java EE)",45,"Antonio Goncalves");
     }
 }
