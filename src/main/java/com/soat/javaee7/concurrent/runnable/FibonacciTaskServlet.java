@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Julien Sadaoui
  */
 @WebServlet(urlPatterns = {"/concurrency-runnable"})
-public class RunnableServlet extends CommonHttpServlet
+public class FibonacciTaskServlet extends CommonHttpServlet
 {
     private static final String TITLE = "Execute a runnable task using JSR 236.";
     
@@ -32,7 +32,7 @@ public class RunnableServlet extends CommonHttpServlet
         content.append("This task print the first 10 Fibonacci numbers to the console.<br /><br/>");    
         
         // This task is executed to the executor using the execute method
-        executor.execute(new RunnableTask());    
+        executor.execute(new FibonacciTask());    
         
         content.append("Check server.log for output from the runnable task.");
             

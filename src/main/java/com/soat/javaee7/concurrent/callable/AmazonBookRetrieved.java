@@ -9,7 +9,7 @@ import java.util.concurrent.Callable;
  * 
  * @author Julien Sadaoui
  */
-public class CallableTask implements Callable<Book>
+public class AmazonBookRetrieved implements Callable<Book>
 {
     @Override
     public Book call() throws Exception {

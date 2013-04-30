@@ -8,7 +8,7 @@ import java.util.concurrent.Callable;
  *
  * @author Julien Sadaoui
  */
-public class PriceministerBookRetreiver  implements Callable<Book>
+public class PriceministerBookRetreived  implements Callable<Book>
 {
 
     @Override

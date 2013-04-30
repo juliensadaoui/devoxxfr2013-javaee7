@@ -6,7 +6,7 @@ package com.soat.javaee7.concurrent.runnable;
  *
  * @author Julien Sadaoui
  */
-public class RunnableTask implements Runnable
+public class FibonacciTask implements Runnable
 {   
     @Override
     public void run() {

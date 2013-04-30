@@ -8,7 +8,7 @@ import java.util.concurrent.Callable;
  *
  * @author Julien Sadaoui
  */
-public class AmazonBookRetriever implements Callable<Book>
+public class AmazonBookRetrieved implements Callable<Book>
 {
 
     @Override
@@ -17,6 +17,6 @@ public class AmazonBookRetriever implements Callable<Book>
         // Simulate that receiving the book takes between 0 and 4 seconds
         Thread.sleep(Math.round(Math.random()* 4.0 * 1000));
           
-        return new Book("Spring par la pratique","Spring Framework 3", 45, "Julien Dubois");
+        return new Book("Spring par la pratique","Spring 2.5 et 3.0", 43, "Julien Dubois");
     }
 }

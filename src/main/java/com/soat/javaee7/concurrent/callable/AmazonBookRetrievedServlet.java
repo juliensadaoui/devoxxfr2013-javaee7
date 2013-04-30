@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Julien Sadaoui
  */
 @WebServlet(urlPatterns = "/concurrency-callable")
-public class CallableServlet extends CommonHttpServlet
+public class AmazonBookRetrievedServlet extends CommonHttpServlet
 {
     private static final String TITLE = "Execute a callable task using JSR 236.";
     
@@ -36,7 +36,7 @@ public class CallableServlet extends CommonHttpServlet
             content.append("This task gets the book information from Amazon Web Services (simulate).<br /><br/>");    
             
             // This task is submitted to the executor and wait the result
-            Future<Book> taskResult = executor.submit(new CallableTask());
+            Future<Book> taskResult = executor.submit(new AmazonBookRetrieved());
             
             // Retrieve the book from the resulting Future list.
             Book book = taskResult.get();
