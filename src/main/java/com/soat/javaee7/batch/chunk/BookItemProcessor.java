@@ -8,10 +8,11 @@ import javax.batch.api.chunk.ItemProcessor;
  *
  * @author Julien Sadaoui
  */
-public class BookItemProcessor implements ItemProcessor<Book, Book>
+public class BookItemProcessor implements ItemProcessor
 {
     @Override
-    public Book processItem(Book book) throws Exception {
+    public Object processItem(Object o) throws Exception {
+        Book book = (Book) o;
         int year = book.getYear();
         if ((year % 2) == 0) {          
             double price = book.getPrice();      

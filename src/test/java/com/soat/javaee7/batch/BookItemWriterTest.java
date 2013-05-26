@@ -22,7 +22,7 @@ public class BookItemWriterTest
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final BookItemWriter itemWriter = new BookItemWriter();
 
-    private final List<Book> books = new ArrayList<Book>() {{
+    private final List books = new ArrayList() {{
         add(createBookBean("book1","description1","author1",2000,10));
         add(createBookBean("book2","description2","author2",2000,15));
     }};

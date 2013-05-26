@@ -12,14 +12,15 @@ import javax.json.JsonArrayBuilder;
  *
  * @author Julien
  */
-public class BookItemWriter implements ItemWriter<Book>
+public class BookItemWriter implements ItemWriter
 {
     private JsonArrayBuilder builder;
     
     @Override
-    public void writeItems(List<Book> books) throws Exception {
+    public void writeItems(List<Object> list) throws Exception {
         
-        for (Book book : books) {
+        for (Object o : list) {
+            Book book = (Book) o;
             builder.add(Json.createObjectBuilder()
                 .add("name", book.getName())
                 .add("description", book.getDescription())

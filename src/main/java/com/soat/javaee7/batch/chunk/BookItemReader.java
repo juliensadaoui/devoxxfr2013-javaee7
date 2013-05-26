@@ -13,12 +13,12 @@ import javax.batch.api.chunk.ItemReader;
  *
  * @author Julien Sadaoui
  */
-public class BookItemReader implements ItemReader<Book>
+public class BookItemReader implements ItemReader
 {
     private BufferedReader br;
     
     @Override
-    public Book readItem() throws Exception {
+    public Object readItem() throws Exception {
         String line = br.readLine();
         if (line != null) {
             String [] fields = line.split(",");

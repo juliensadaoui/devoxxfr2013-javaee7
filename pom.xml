@@ -23,7 +23,14 @@
     </properties>
 
     <dependencies>
-
+        
+        <!-- JSR 342 - Java EE 7 -->
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+        </dependency>
+        
         <!-- JSR 353 - Java API for JSON -->
         <dependency>
             <groupId>org.glassfish</groupId>
@@ -53,8 +60,8 @@
         <!-- JSR 352 - Batch Applications in Java EE 7 -->
         <dependency>
             <groupId>javax.batch</groupId>
-            <artifactId>javax.batch-api-all</artifactId>
-            <version>1.0-b17</version>
+            <artifactId>javax.batch-api</artifactId>
+            <version>1.0</version>
         </dependency>
         
         <!-- JSR 236 - Concurrency Utilities for Java EE -->

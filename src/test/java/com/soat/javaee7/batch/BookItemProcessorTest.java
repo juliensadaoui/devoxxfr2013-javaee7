@@ -27,7 +27,7 @@ public class BookItemProcessorTest {
         book.setPrice(10);
              
         BookItemProcessor processor = new BookItemProcessor();
-        book = processor.processItem(book);
+        book = (Book) processor.processItem(book);
         
         assertThat(book.getPrice()).isEqualTo(8.5);
     }
@@ -47,7 +47,7 @@ public class BookItemProcessorTest {
         book.setPrice(25);
              
         BookItemProcessor processor = new BookItemProcessor();
-        book = processor.processItem(book);
+        book = (Book) processor.processItem(book);
         
         assertThat(book.getPrice()).isEqualTo(25);
     }
